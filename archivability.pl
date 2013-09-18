@@ -9,6 +9,7 @@
 # Contact Mat Kelly <me@matkelly.com> for more questions/info
 #
 #  Version
+#  20130918 - MAT - Fixed curl'd URI to archive.org's 'new' format
 #  20130129 - MAT - Added flag to allow JS support to be specific at runtime
 #  20130127 - MAT - Added support to Alexa Top 500 input file
 #  20130125 - MAT - Init
@@ -64,8 +65,8 @@ for (my $siteI=0; $siteI<($#sites+1); $siteI++) {   # Venturing beyond the top 1
 
 	my $curl = WWW::Curl::Easy->new;
 	$curl->setopt(CURLOPT_HEADER,1);
-	$curl->setopt(CURLOPT_URL, 'http://api.wayback.archive.org/list/timemap/link/'.$sites[$siteI]);
-	print 'http://api.wayback.archive.org/list/timemap/link/'.$sites[$siteI]."\n";
+	$curl->setopt(CURLOPT_URL, 'http://web.archive.org/web/timemap/link/'.$sites[$siteI]);
+	print 'http://web.archive.org/web/timemap/link/'.$sites[$siteI]."\n";
 
 
 	my $response_body;
